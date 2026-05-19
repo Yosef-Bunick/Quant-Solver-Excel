@@ -1,0 +1,23 @@
+Public Sub ExportAllModules()
+    Dim comp As Object
+    Dim outFolder As String
+    outFolder = Environ$("USERPROFILE") & "\Desktop\FastSolverVBA"
+    
+    On Error Resume Next
+    MkDir outFolder
+    On Error GoTo 0
+    
+    For Each comp In ThisWorkbook.VBProject.VBComponents
+        Dim ext As String
+        Select Case comp.Type
+            Case 1: ext = ".bas"    ' Standard module
+            Case 2: ext = ".cls"    ' Class module
+            Case 3: ext = ".frm"    ' UserForm
+            Case 100: ext = ".cls"  ' Document/Sheet
+            Case Else: ext = ".txt"
+        End Select
+        comp.Export outFolder & "\" & comp.Name & ext
+    Next comp
+    
+    MsgBox "Exported to: " & outFolder
+End Sub
