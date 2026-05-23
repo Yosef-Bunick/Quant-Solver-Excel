@@ -8,6 +8,7 @@ done is best ready to build just execute
 
 
 ```
+MAKE SURE MODPYTHONBRIDGE IS SET TO FALSE
 PS C:\Users\yosef> pip show pyinstaller cython setuptools scipy numpy openpyxl pycel | findstr /R "^Name ^Version"
 Name: pyinstaller
 Version: 6.20.0
