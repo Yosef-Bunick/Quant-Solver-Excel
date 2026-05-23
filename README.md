@@ -25,5 +25,10 @@ Name: pycel
 Version: 1.0b30
 python ==3.12
 PS C:\Users\yosef>
+
+
+
+python setup_cython.py build_ext --inplace
+python 11_build_exe.py
 ```
 
