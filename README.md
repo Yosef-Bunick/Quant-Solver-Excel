@@ -30,6 +30,7 @@ PS C:\Users\yosef>
 
 
 python setup_cython.py build_ext --inplace
+python patch_scipy_stats.py
 python 11_build_exe.py
 ```
 
