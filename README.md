@@ -1,9 +1,11 @@
+excel solver, download, build, pull the exe, excel and _internal into the same file, right click file and click trust, then open excel> in options click add ins>browse>then add excel sheet to path. 
+
 3 WORKS
 4 IS FIRST STEP INTO C++ COMPILE, 4 STEP ONE IS CONNECTED BUT VERY BADLY NEEDS FIXING, YOU CAN REMOVE THEM ONCE YOU CREATE A NEW ONE THAT WORKS
 5 is 12 seconds long to solve 3
 6 is 8 secconds lightning speed
 9 is done
-done is best ready to build just execute 
+12 done is best ready to build just execute 
 
 
 
