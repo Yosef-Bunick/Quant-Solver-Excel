@@ -1,38 +1,50 @@
-excel solver, download, build, pull the exe, excel and _internal into the same file, right click file and click trust, then open excel> in options click add ins>browse>then add excel sheet to path. 
+# QuantSolver Engine
 
-3 WORKS
-4 IS FIRST STEP INTO C++ COMPILE, 4 STEP ONE IS CONNECTED BUT VERY BADLY NEEDS FIXING, YOU CAN REMOVE THEM ONCE YOU CREATE A NEW ONE THAT WORKS
-5 is 12 seconds long to solve 3
-6 is 8 secconds lightning speed
-9 is done
-12 done is best ready to build just execute 
+A custom optimization engine built in Excel/VBA + Python (Cython-compiled). Handles multi-objective, multi-variable, multi-constraint problems with parallel convergence. Built after the native Excel Solver fell short — tested and verified against a quant's reference benchmark, and beat it on accuracy.
 
+Shipped as an `.xlam` Excel add-in so it drops into existing workflows with a single in-sheet button.
 
+---
+
+## Build instructions
+
+### Dependencies
 
 ```
-MAKE SURE MODPYTHONBRIDGE FS_RUN_FROM_SOURCE IS SET TO FALSE
-PS C:\Users\yosef> pip show pyinstaller cython setuptools scipy numpy openpyxl pycel | findstr /R "^Name ^Version"
-Name: pyinstaller
-Version: 6.20.0
-Name: Cython
-Version: 3.2.4
-Name: setuptools
-Version: 80.9.0
-Name: scipy
-Version: 1.16.3
-Name: numpy
-Version: 2.2.6
-Name: openpyxl
-Version: 3.1.5
-Name: pycel
-Version: 1.0b30
-python ==3.12
-PS C:\Users\yosef>
+Python 3.12
+pip install pyinstaller==6.20.0 cython==3.2.4 setuptools==80.9.0 scipy==1.16.3 numpy==2.2.6 openpyxl==3.1.5 pycel==1.0b30
+```
 
+### Build
 
+```bash
+# 1. Set flag before building
+#    In bridge_07.py, ensure: FS_RUN_FROM_SOURCE = False
 
+# 2. Compile Python to native binaries
 python setup_cython.py build_ext --inplace
+
+# 3. Patch scipy for PyInstaller compatibility
 python patch_scipy_stats.py
+
+# 4. Bundle into standalone .exe
 python 11_build_exe.py
 ```
+
+### Install in Excel
+
+1. Extract the built `.exe` — the `_internal/` folder and `.xlam` must be in the same directory
+2. Right-click the `.xlam`, check "Unblock" / "Trust"
+3. Open Excel → Options → Add-ins → Browse → select the `.xlam`
+
+### Version history (in archive/)
+
+| Version | Performance |
+|---------|------------|
+| 3 | Working baseline |
+| 4 | First C++ compile pass (partial) |
+| 5 | 12 seconds |
+| 6 | 8 seconds |
+| 9 | Feature-complete |
+| 12 | Best — ready to build |
 
