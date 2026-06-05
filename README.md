@@ -16,6 +16,10 @@ Shipped as an `.xlam` Excel add-in so it drops into existing workflows with a si
 
 QuantSolver turns an Excel workbook into an optimization model, evaluates it through Python, and writes the best solution back to Excel.
 
+Data->YosefBunick's QuantSolver
+<img width="1216" height="1420" alt="image" src="https://github.com/user-attachments/assets/d349f073-9c89-40c1-af20-798d9e8eef97" />
+
+
 At a high level:
 
 1. The Excel add-in exports a temporary run folder containing `config.json` and `source.xlsx`.
