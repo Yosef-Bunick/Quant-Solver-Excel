@@ -26,6 +26,25 @@ input Objectives,Variables,and Constraints->Solve
 <img width="1240" height="1520" alt="image" src="https://github.com/user-attachments/assets/e7109c03-3f3f-4ee3-a05b-cbeb8f3147c6" />
 
 
+## Available Method Choices
+
+QuantSolver supports several optimizer routes. The Excel UI method dropdown writes a method name into `config.json`; `bridge_07.py` normalizes that name and dispatches to the matching solver.
+
+| Method Choice | What it does |
+|---------------|--------------|
+| `auto` | Automatically routes by problem size: `slsqp` for smaller models and `l-bfgs-b` for larger variable counts. |
+| `slsqp` | Uses SciPy SLSQP, a local constrained optimizer for smooth nonlinear problems. |
+| `l-bfgs-b` | Uses SciPy L-BFGS-B, a fast local bounded optimizer for larger variable sets. |
+| `powell` | Uses SciPy Powell, a derivative-free local search method. |
+| `de` | Uses global derivative-free differential evolution search. |
+| `de-multi-restart` | Runs differential evolution with restart-style search for broader exploration. |
+| `cd-azas` | Uses the custom anti-zigzag adaptive-step coordinate descent solver. |
+| `portfolio` | Runs the full solver portfolio: Differential Evolution -> Powell -> Coordinate Descent AZAS -> L-BFGS-B -> SLSQP. |
+| `portfolio-cd` | Runs a portfolio focused on Differential Evolution -> Coordinate Descent AZAS -> L-BFGS-B -> SLSQP. |
+| `portfolio-powell` | Runs a portfolio focused on Differential Evolution -> Powell -> L-BFGS-B -> SLSQP. |
+---
+
+
 
 ### At a high level:
 
@@ -186,25 +205,6 @@ python 11_build_exe.py
 3. Open Excel → Options → Add-ins → Browse → select the `.xlam`.
 
 ---
-
-## Available Method Choices
-
-QuantSolver supports several optimizer routes. The Excel UI method dropdown writes a method name into `config.json`; `bridge_07.py` normalizes that name and dispatches to the matching solver.
-
-| Method choice / aliases                                                                                                                            | Internal route     | What it does                                                                                                      |
-| -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `Auto`                                                                                                                                             | `auto`             | Automatically routes by problem size: `SLSQP` for smaller models and `L-BFGS-B` for larger variable counts.       |
-| `SLSQP`, `SLSQP Python`                                                                                                                            | `slsqp`            | Uses SciPy SLSQP, a local constrained optimizer for smooth nonlinear problems.                                    |
-| `L-BFGS-B`, `LBFGS`                                                                                                                                | `l-bfgs-b`         | Uses SciPy L-BFGS-B, a fast local bounded optimizer for larger variable sets.                                     |
-| `Homotopy / AutoDiff`, `Homotopy`                                                                                                                  | `l-bfgs-b`         | Accepted method label; currently falls back to the L-BFGS-B route.                                                |
-| `Powell`                                                                                                                                           | `powell`           | Uses SciPy Powell, a derivative-free local search method.                                                         |
-| `Differential Evolution`, `DE`                                                                                                                     | `de`               | Uses global derivative-free differential evolution search.                                                        |
-| `DE Multi Restart`, `Differential Evolution Multi Restart`, `DE 100`, `DE100`                                                                      | `de-multi-restart` | Runs differential evolution with restart-style search for broader exploration.                                    |
-| `Coordinate Descent`, `CD`, `CD-AZAS`, `Coordinate Descent AZAS`, `Coordinate Descent Anti-Zigzag`, `Coordinate Descent Anti-Zigzag Adaptive Step` | `cd-azas`          | Uses the custom anti-zigzag adaptive-step coordinate descent solver.                                              |
-| `Portfolio`, `Portfolio (All Methods)`, `Best of All`, `Round Robin`                                                                               | `portfolio`        | Runs the full solver portfolio: Differential Evolution -> Powell -> Coordinate Descent AZAS -> L-BFGS-B -> SLSQP. |
-| `Portfolio CD`                                                                                                                                     | `portfolio-cd`     | Runs a portfolio focused on Differential Evolution -> Coordinate Descent AZAS -> L-BFGS-B -> SLSQP.               |
-| `Portfolio Powell`                                                                                                                                 | `portfolio-powell` | Runs a portfolio focused on Differential Evolution -> Powell -> L-BFGS-B -> SLSQP.                                |
-| :::                                                                                                                                                |                    |                                                                                                                   |
 
 
 ## Version History
