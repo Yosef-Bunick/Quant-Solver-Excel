@@ -32,16 +32,17 @@ QuantSolver supports several optimizer routes. The Excel UI method dropdown writ
 
 | Method Choice | What it does |
 |---------------|--------------|
-| `auto` | Automatically routes by problem size: `slsqp` for smaller models and `l-bfgs-b` for larger variable counts. |
-| `slsqp` | Uses SciPy SLSQP, a local constrained optimizer for smooth nonlinear problems. |
-| `l-bfgs-b` | Uses SciPy L-BFGS-B, a fast local bounded optimizer for larger variable sets. |
-| `powell` | Uses SciPy Powell, a derivative-free local search method. |
-| `de` | Uses global derivative-free differential evolution search. |
+| `portfolio` | Runs the full solver portfolio: Differential Evolution -> Powell -> Coordinate Descent AZAS -> L-BFGS-B -> SLSQP. |
+| `portfolio-cd` | Runs a portfolio focused on: Differential Evolution -> Coordinate Descent AZAS -> L-BFGS-B -> SLSQP. |
+| `portfolio-powell` | Runs a portfolio focused on: Differential Evolution -> Powell -> L-BFGS-B -> SLSQP. |
 | `de-multi-restart` | Runs differential evolution with restart-style search for broader exploration. |
 | `cd-azas` | Uses the custom anti-zigzag adaptive-step coordinate descent solver. |
-| `portfolio` | Runs the full solver portfolio: Differential Evolution -> Powell -> Coordinate Descent AZAS -> L-BFGS-B -> SLSQP. |
-| `portfolio-cd` | Runs a portfolio focused on Differential Evolution -> Coordinate Descent AZAS -> L-BFGS-B -> SLSQP. |
-| `portfolio-powell` | Runs a portfolio focused on Differential Evolution -> Powell -> L-BFGS-B -> SLSQP. |
+| `slsqp` | Uses SciPy SLSQP, a local constrained optimizer for smooth nonlinear problems. |
+| `l-bfgs-b` | Uses SciPy L-BFGS-B, a fast local bounded optimizer for larger variable sets. |
+| `de` | Uses global derivative-free differential evolution search. |
+| `powell` | Uses SciPy Powell, a derivative-free local search method. |
+| `auto` | Automatically routes by problem size: `slsqp` for smaller models and `l-bfgs-b` for larger variable counts. |
+
 ---
 
 
