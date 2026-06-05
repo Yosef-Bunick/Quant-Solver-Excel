@@ -17,7 +17,8 @@ Shipped as an `.xlam` Excel add-in so it drops into existing workflows with a si
 QuantSolver turns an Excel workbook into an optimization model, evaluates it through Python, and writes the best solution back to Excel.
 ```
 To open:
-Click Data->YosefBunick's QuantSolver->input Objectives,Variables,and Constraints->Solve
+Click Data->YosefBunick's QuantSolver->
+input Objectives,Variables,and Constraints->Solve
 (See Help Button for advanced features)
  ```
 
