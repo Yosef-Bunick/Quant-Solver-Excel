@@ -19,4 +19,4 @@ https://creativecommons.org/licenses/by-nc-nd/4.0/
 
 This license applies unless otherwise explicitly stated within specific files or directories of this repository.
 
-For permission to monetize, distribute modified versions, remix, sublicense, or commercially use this repository, please contact the creator directly.
+***For permission to monetize, distribute modified versions, remix, sublicense, or commercially use this repository, please contact the creator directly.***
