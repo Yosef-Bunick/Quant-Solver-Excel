@@ -45,6 +45,6 @@ python 11_build_exe.py
 | 4 | First C++ compile pass (partial) |
 | 5 | 12 seconds |
 | 6 | 8 seconds |
-| 9 | Feature-complete |
+| 9 | Feature-complete UI |
 | 12 | Best — ready to build |
 
