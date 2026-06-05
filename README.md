@@ -25,7 +25,7 @@ Click Data->YosefBunick's QuantSolver->input Objectives,Variables,and Constraint
 
 
 
-At a high level:
+### At a high level:
 
 1. The Excel add-in exports a temporary run folder containing `config.json` and `source.xlsx`.
 2. `FastSolver.exe` starts the Python bridge through `_launcher.py`.
