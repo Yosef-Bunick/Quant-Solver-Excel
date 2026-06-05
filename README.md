@@ -1,4 +1,5 @@
 <p align="center">
+  <a href="#build-instructions"><img src="https://img.shields.io/badge/🛠️-Build_Instructions-7dd3a8" alt="Build Instructions"></a>
   <a href="#workflow"><img src="https://img.shields.io/badge/📐-Workflow-7dd3a8" alt="Workflow"></a>
   <a href="#how-it-works"><img src="https://img.shields.io/badge/⚙️-How_It_Works-7ab3ff" alt="How It Works"></a>
   <a href="LICENCE.MD"><img src="https://img.shields.io/badge/📜-CC_BY--NC--ND_4.0-d4d4d4" alt="License"></a>
